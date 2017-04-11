@@ -25,14 +25,14 @@ public class Game extends Thread {
             Controller.graphics.clearRect(0,0,canvas.getWidth(),canvas.getHeight());
             calculateScene();
             drawFrame(Controller.graphics);
-            try { Thread.sleep(20); }
+            try { Thread.sleep(18); }
             catch (InterruptedException e) { e.printStackTrace(); }
         }
     }
 
     private void drawFrame(GraphicsContext gc) {
         map.paint(gc);
-        gc.drawImage(pacman.pic, pacman.X, pacman.Y);
+        pacman.paint(gc);
     }
 
     private void calculateScene() {

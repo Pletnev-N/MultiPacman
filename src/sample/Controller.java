@@ -35,32 +35,32 @@ public class Controller {
 
     public void keyPressed(KeyEvent keyEvent) {
         if (keyEvent.getCode()==KeyCode.LEFT){
-            if ( (map.massive[pacman1.Y/Game.CELL_SIZE][(pacman1.X-1)/Game.CELL_SIZE]!=map.WALL)&&
-                    (map.massive[(pacman1.Y+Game.CELL_SIZE-1)/Game.CELL_SIZE][(pacman1.X-1)/Game.CELL_SIZE]!=map.WALL) ) {
-                pacman1.directionX = -1;
-                pacman1.directionY = 0;
-            }
+            //if ( (map.massive[pacman1.Y/Game.CELL_SIZE][(pacman1.X-1)/Game.CELL_SIZE]!=map.WALL)&&
+                    //(map.massive[(pacman1.Y+Game.CELL_SIZE-1)/Game.CELL_SIZE][(pacman1.X-1)/Game.CELL_SIZE]!=map.WALL) ) {
+                pacman1.newDirectionX = -1;
+                pacman1.newDirectionY = 0;
+            //}
         }
         if (keyEvent.getCode()==KeyCode.RIGHT){
-            if ( (map.massive[pacman1.Y/Game.CELL_SIZE][(pacman1.X+Game.CELL_SIZE)/Game.CELL_SIZE]!=map.WALL)&&
-                    (map.massive[(pacman1.Y+Game.CELL_SIZE-1)/Game.CELL_SIZE][(pacman1.X+Game.CELL_SIZE)/Game.CELL_SIZE]!=map.WALL) ) {
-                pacman1.directionX = 1;
-                pacman1.directionY = 0;
-            }
+           // if ( (map.massive[pacman1.Y/Game.CELL_SIZE][(pacman1.X+Game.CELL_SIZE)/Game.CELL_SIZE]!=map.WALL)&&
+                    //(map.massive[(pacman1.Y+Game.CELL_SIZE-1)/Game.CELL_SIZE][(pacman1.X+Game.CELL_SIZE)/Game.CELL_SIZE]!=map.WALL) ) {
+                pacman1.newDirectionX = 1;
+                pacman1.newDirectionY = 0;
+           // }
         }
         if (keyEvent.getCode()==KeyCode.UP){
-            if ( (map.massive[(pacman1.Y-1)/Game.CELL_SIZE][pacman1.X/Game.CELL_SIZE]!=map.WALL)&&
-                    (map.massive[(pacman1.Y-1)/Game.CELL_SIZE][(pacman1.X+Game.CELL_SIZE-1)/Game.CELL_SIZE]!=map.WALL) ) {
-                pacman1.directionX = 0;
-                pacman1.directionY = -1;
-            }
+           // if ( (map.massive[(pacman1.Y-1)/Game.CELL_SIZE][pacman1.X/Game.CELL_SIZE]!=map.WALL)&&
+                    //(map.massive[(pacman1.Y-1)/Game.CELL_SIZE][(pacman1.X+Game.CELL_SIZE-1)/Game.CELL_SIZE]!=map.WALL) ) {
+                pacman1.newDirectionX = 0;
+                pacman1.newDirectionY = -1;
+            //}
         }
         if (keyEvent.getCode()==KeyCode.DOWN){
-            if ( (map.massive[(pacman1.Y+Game.CELL_SIZE)/Game.CELL_SIZE][pacman1.X/Game.CELL_SIZE]!=map.WALL)&&
-                    (map.massive[(pacman1.Y+Game.CELL_SIZE)/Game.CELL_SIZE][(pacman1.X+Game.CELL_SIZE-1)/Game.CELL_SIZE]!=map.WALL) ) {
-                pacman1.directionX = 0;
-                pacman1.directionY = 1;
-            }
+           // if ( (map.massive[(pacman1.Y+Game.CELL_SIZE)/Game.CELL_SIZE][pacman1.X/Game.CELL_SIZE]!=map.WALL)&&
+                   // (map.massive[(pacman1.Y+Game.CELL_SIZE)/Game.CELL_SIZE][(pacman1.X+Game.CELL_SIZE-1)/Game.CELL_SIZE]!=map.WALL) ) {
+                pacman1.newDirectionX = 0;
+                pacman1.newDirectionY = 1;
+            //}
         }
     }
 
