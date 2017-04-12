@@ -10,7 +10,7 @@ public class Pacman {
     public int directionX,directionY;
     public int newDirectionX,newDirectionY;
     public double speed;
-    public int playerNum;
+    public int playerID;
     public int score;
     public Image pic;
 
