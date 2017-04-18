@@ -32,7 +32,7 @@ public class MenuController {
         //stage = new Stage();
        // stage.initModality(Modality.APPLICATION_MODAL);
         //stage.setTitle("Pacman");
-        stage.setScene(new Scene(root, Game.CELL_SIZE*Game.WIDTH, Game.CELL_SIZE*Game.HEIGHT));
+        stage.setScene(new Scene( root, Game.CELL_SIZE*Game.WIDTH, Game.CELL_SIZE*Game.HEIGHT));
         stage.show();
     }
 
@@ -49,7 +49,7 @@ public class MenuController {
         //stage = new Stage();
         // stage.initModality(Modality.APPLICATION_MODAL);
         //stage.setTitle("Pacman");
-        stage.setScene(new Scene(root, Game.CELL_SIZE*Game.WIDTH, Game.CELL_SIZE*Game.HEIGHT));
+        stage.setScene(new Scene(root, /*Game.CELL_SIZE*Game.WIDTH*/600, /*Game.CELL_SIZE*Game.HEIGHT*/400));
         stage.show();
     }
 
@@ -61,7 +61,7 @@ public class MenuController {
         //stage = new Stage();
         // stage.initModality(Modality.APPLICATION_MODAL);
         //stage.setTitle("Pacman");
-        stage.setScene(new Scene(root, Game.CELL_SIZE*Game.WIDTH, Game.CELL_SIZE*Game.HEIGHT));
+        stage.setScene(new Scene(root, /*Game.CELL_SIZE*Game.WIDTH*/600, /*Game.CELL_SIZE*Game.HEIGHT*/400));
         stage.show();
     }
 
@@ -73,7 +73,7 @@ public class MenuController {
         //stage = new Stage();
         // stage.initModality(Modality.APPLICATION_MODAL);
         //stage.setTitle("Pacman");
-        stage.setScene(new Scene(root, Game.CELL_SIZE*Game.WIDTH, Game.CELL_SIZE*Game.HEIGHT));
+        stage.setScene(new Scene(root, /*Game.CELL_SIZE*Game.WIDTH*/600, /*Game.CELL_SIZE*Game.HEIGHT*/400));
         stage.show();
     }
 }
