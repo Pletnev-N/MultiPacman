@@ -5,21 +5,25 @@ import java.net.*;
 
 public class ServerThread extends Thread{
 
-    public Socket socket;
+    public int sessionNum;
 
-    public ServerThread(Socket soc){
-        socket=soc;
+    public ServerThread(int num){
+        sessionNum=num;
     }
 
     public void run() {
         try {
+            Socket socket = Server.ss.accept();
             InputStream sin = socket.getInputStream();
             OutputStream sout = socket.getOutputStream();
             DataInputStream in = new DataInputStream(sin);
             DataOutputStream out = new DataOutputStream(sout);
-            if (in.readUTF()=="find"){
+            if (in.readUTF()=="player"){
+                if (Server.sessionList.get(sessionNum).players.size()==4) Server.sessionList.get(sessionNum).status="ready";
+                else Server.sessionList.get(sessionNum).players.add(socket);
             }
-            if (in.readUTF()=="create"){
+            if (in.readUTF()=="spectator"){
+                Server.sessionList.get(sessionNum).spectators.add(socket);
             }
         } catch(Exception x) { x.printStackTrace(); }
     }

@@ -23,7 +23,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
         primaryStage.setTitle("Pacman");
-        primaryStage.setScene(new Scene(root, Game.CELL_SIZE*Game.WIDTH, Game.CELL_SIZE*Game.HEIGHT));
+        primaryStage.setScene(new Scene(root, /*Game.CELL_SIZE*Game.WIDTH*/600, /*Game.CELL_SIZE*Game.HEIGHT*/400));
         primaryStage.show();
     }
 
