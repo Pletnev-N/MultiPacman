@@ -6,11 +6,11 @@ import java.util.ArrayList;
 
 public class Server {
 
-    public static ArrayList<Session> sessionList;
+    public static ArrayList<SessionThread> sessionList;
     public static ServerSocket ss;
 
     public static void main(String[] ar){
-        sessionList = new ArrayList<Session>();
+        sessionList = new ArrayList<SessionThread>();
         int num=0;
         int port = 6666;
         try {
@@ -21,14 +21,15 @@ public class Server {
                 OutputStream sout = socket.getOutputStream();
                 DataInputStream in = new DataInputStream(sin);
                 DataOutputStream out = new DataOutputStream(sout);
-                if (in.readUTF()=="create"){
-                    sessionList.add(num,new Session(socket));
-                    ServerThread sThread = new ServerThread(num);
-                    sThread.setDaemon(true);
-                    sThread.start();
+                String input = in.readUTF();
+                if (input=="create"){
+                    SessionThread session = new SessionThread(num, socket);
+                    session.setDaemon(true);
+                    session.start();
+                    sessionList.add(num,session);
                     num++;
                 }
-                if (in.readUTF()=="find"){
+                if (input=="find"){
                 }
             }
         } catch(Exception x) { x.printStackTrace(); }
