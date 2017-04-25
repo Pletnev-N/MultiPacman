@@ -20,18 +20,13 @@ import java.io.IOException;
 
 
 public class MenuController {
-   // @FXML
-   // private TextLayout startgame;
+
     @FXML
     private AnchorPane pane;
     @FXML public void startgame(MouseEvent mouseEvent) throws IOException {
+        Client.out.writeUTF("start");
         Stage stage = (Stage) pane.getScene().getWindow();
-        //stage.close();
-        //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root =  FXMLLoader.load(getClass().getResource("sample.fxml"));
-        //stage = new Stage();
-       // stage.initModality(Modality.APPLICATION_MODAL);
-        //stage.setTitle("Pacman");
         stage.setScene(new Scene( root, Game.CELL_SIZE*Game.WIDTH, Game.CELL_SIZE*Game.HEIGHT));
         stage.show();
     }
@@ -43,36 +38,23 @@ public class MenuController {
 
     public void back(MouseEvent mouseEvent) throws IOException {
         Stage stage = (Stage) pane.getScene().getWindow();
-        //stage.close();
-        //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root =  FXMLLoader.load(getClass().getResource("menu.fxml"));
-        //stage = new Stage();
-        // stage.initModality(Modality.APPLICATION_MODAL);
-        //stage.setTitle("Pacman");
         stage.setScene(new Scene(root, /*Game.CELL_SIZE*Game.WIDTH*/600, /*Game.CELL_SIZE*Game.HEIGHT*/400));
         stage.show();
     }
 
     public void creategame(MouseEvent mouseEvent) throws IOException {
+        Client.connectToServer();
+        Client.out.writeUTF("create");
         Stage stage = (Stage) pane.getScene().getWindow();
-        //stage.close();
-        //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root =  FXMLLoader.load(getClass().getResource("creategame.fxml"));
-        //stage = new Stage();
-        // stage.initModality(Modality.APPLICATION_MODAL);
-        //stage.setTitle("Pacman");
         stage.setScene(new Scene(root, /*Game.CELL_SIZE*Game.WIDTH*/600, /*Game.CELL_SIZE*Game.HEIGHT*/400));
         stage.show();
     }
 
     public void findgame(MouseEvent mouseEvent) throws IOException {
         Stage stage = (Stage) pane.getScene().getWindow();
-        //stage.close();
-        //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root =  FXMLLoader.load(getClass().getResource("findgame.fxml"));
-        //stage = new Stage();
-        // stage.initModality(Modality.APPLICATION_MODAL);
-        //stage.setTitle("Pacman");
         stage.setScene(new Scene(root, /*Game.CELL_SIZE*Game.WIDTH*/600, /*Game.CELL_SIZE*Game.HEIGHT*/400));
         stage.show();
     }

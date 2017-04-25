@@ -3,23 +3,20 @@ import java.net.*;
 import java.io.*;
 
 public class Client {
-    public static void main(String[] ar) {
-        int serverPort = 6666; // порт серва
-        String address = "127.0.0.1"; // локальный ип
+
+    public static DataInputStream in;
+    public static DataOutputStream out;
+
+    public static void connectToServer() {
         try {
-          //  InetAddress ipAddress = InetAddress.getByName(address); // адресс
-          //  Socket socket = new Socket(ipAddress, serverPort); // новый сокет
-
-          //  InputStream sin = socket.getInputStream();
-          //  OutputStream sout = socket.getOutputStream();
-
-           // DataInputStream in = new DataInputStream(sin);
-           // DataOutputStream out = new DataOutputStream(sout);
-            while (true){
-                //тело клиента
-            }
-        } catch (Exception x) {
-            x.printStackTrace();
-        }
+            int serverPort = 6666;
+            String address = "127.0.0.1";
+            InetAddress ipAddress = InetAddress.getByName(address);
+            Socket socket = new Socket(ipAddress, serverPort);
+            InputStream sin = socket.getInputStream();
+            OutputStream sout = socket.getOutputStream();
+            in = new DataInputStream(sin);
+            out = new DataOutputStream(sout);
+        } catch (Exception x) { x.printStackTrace(); }
     }
 }

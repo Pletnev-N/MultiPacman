@@ -17,7 +17,7 @@ public class Controller {
     public Canvas canvas;
     public static GraphicsContext graphics;
 
-    public Pacman pacman1;
+    public Pacman myPacman;
     public Map map;
 
 
@@ -25,9 +25,9 @@ public class Controller {
     @FXML
     public void initialize() {
         graphics = canvas.getGraphicsContext2D();
-        pacman1=new Pacman(1,1,1,0,1.0);
+        myPacman=new Pacman(1,1,1,0,1.0);
         map=new Map();
-        Game game = new Game(canvas,map,pacman1);
+        Game game = new Game(canvas,map,myPacman);
         game.setDaemon(true);
         game.start();
     }
@@ -35,32 +35,20 @@ public class Controller {
 
     public void keyPressed(KeyEvent keyEvent) {
         if (keyEvent.getCode()==KeyCode.LEFT){
-            //if ( (map.massive[pacman1.Y/Game.CELL_SIZE][(pacman1.X-1)/Game.CELL_SIZE]!=map.WALL)&&
-                    //(map.massive[(pacman1.Y+Game.CELL_SIZE-1)/Game.CELL_SIZE][(pacman1.X-1)/Game.CELL_SIZE]!=map.WALL) ) {
-                pacman1.newDirectionX = -1;
-                pacman1.newDirectionY = 0;
-            //}
+            myPacman.newDirectionX = -1;
+            myPacman.newDirectionY = 0;
         }
         if (keyEvent.getCode()==KeyCode.RIGHT){
-           // if ( (map.massive[pacman1.Y/Game.CELL_SIZE][(pacman1.X+Game.CELL_SIZE)/Game.CELL_SIZE]!=map.WALL)&&
-                    //(map.massive[(pacman1.Y+Game.CELL_SIZE-1)/Game.CELL_SIZE][(pacman1.X+Game.CELL_SIZE)/Game.CELL_SIZE]!=map.WALL) ) {
-                pacman1.newDirectionX = 1;
-                pacman1.newDirectionY = 0;
-           // }
+            myPacman.newDirectionX = 1;
+            myPacman.newDirectionY = 0;
         }
         if (keyEvent.getCode()==KeyCode.UP){
-           // if ( (map.massive[(pacman1.Y-1)/Game.CELL_SIZE][pacman1.X/Game.CELL_SIZE]!=map.WALL)&&
-                    //(map.massive[(pacman1.Y-1)/Game.CELL_SIZE][(pacman1.X+Game.CELL_SIZE-1)/Game.CELL_SIZE]!=map.WALL) ) {
-                pacman1.newDirectionX = 0;
-                pacman1.newDirectionY = -1;
-            //}
+            myPacman.newDirectionX = 0;
+            myPacman.newDirectionY = -1;
         }
         if (keyEvent.getCode()==KeyCode.DOWN){
-           // if ( (map.massive[(pacman1.Y+Game.CELL_SIZE)/Game.CELL_SIZE][pacman1.X/Game.CELL_SIZE]!=map.WALL)&&
-                   // (map.massive[(pacman1.Y+Game.CELL_SIZE)/Game.CELL_SIZE][(pacman1.X+Game.CELL_SIZE-1)/Game.CELL_SIZE]!=map.WALL) ) {
-                pacman1.newDirectionX = 0;
-                pacman1.newDirectionY = 1;
-            //}
+            myPacman.newDirectionX = 0;
+            myPacman.newDirectionY = 1;
         }
     }
 

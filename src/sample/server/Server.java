@@ -1,15 +1,27 @@
 package sample.server;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 import java.net.*;
 import java.io.*;
 import java.util.ArrayList;
 
-public class Server {
+public class Server extends Application {
 
     public static ArrayList<SessionThread> sessionList;
     public static ServerSocket ss;
 
-    public static void main(String[] ar){
+    @Override
+    public void start(Stage primaryStage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("server.fxml"));
+        primaryStage.setTitle("Pacman Server");
+        primaryStage.setScene(new Scene(root,200,150));
+        primaryStage.show();
+
         sessionList = new ArrayList<SessionThread>();
         int num=0;
         int port = 6666;
@@ -22,18 +34,23 @@ public class Server {
                 DataInputStream in = new DataInputStream(sin);
                 DataOutputStream out = new DataOutputStream(sout);
                 String input = in.readUTF();
-                if (input=="create"){
+                if (input.equals("create")){
                     SessionThread session = new SessionThread(num, socket);
                     session.setDaemon(true);
                     session.start();
                     sessionList.add(num,session);
                     num++;
+                    System.out.print("создание игры");
                 }
-                if (input=="find"){
+                if (input.equals("find")){
+                    System.out.print("поиск игры");
                 }
             }
         } catch(Exception x) { x.printStackTrace(); }
+    }
 
+    public static void main(String[] args) {
+        launch(args);
     }
 
 
