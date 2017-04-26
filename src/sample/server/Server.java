@@ -35,7 +35,7 @@ public class Server extends Application {
                 DataOutputStream out = new DataOutputStream(sout);
                 String input = in.readUTF();
                 if (input.equals("create")){
-                    SessionThread session = new SessionThread(num, socket);
+                    SessionThread session = new SessionThread(num, socket, in.readUTF());
                     session.setDaemon(true);
                     session.start();
                     sessionList.add(num,session);
@@ -43,6 +43,8 @@ public class Server extends Application {
                     System.out.print("создание игры");
                 }
                 if (input.equals("find")){
+                    for (SessionThread session: sessionList) {
+                    }
                     System.out.print("поиск игры");
                 }
             }

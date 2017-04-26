@@ -9,47 +9,77 @@ import java.util.ArrayList;
 public class SessionThread extends Thread{
 
     public int sessionNum;
-    public ArrayList<Socket> players;
-    public ArrayList<Socket> spectators;
+    public ArrayList<User> users;
+    public User[] players;
+    public PlayerListener[] listeners;
+    public int playersNum;
     public String status;
 
-    public SessionThread(int num, Socket soc){
+    public SessionThread(int num, Socket soc, String creatorName){
         sessionNum=num;
-        players = new ArrayList<Socket>();
-        players.add(soc);
-        spectators = new ArrayList<Socket>();
+        users = new ArrayList<User>();
+        users.add(new User(soc,creatorName,"player"));
         status="lobby";
     }
 
     public void run() {
 
-        Thread waitForPlayers = new Thread(){
+        /*Thread waitForPlayers = new Thread(){
             @Override
             public void run() {
                 waitForPlayersRun();
             }
-        };
+        };*/
 
-        Thread waitForStart = new Thread(){
+        /*Thread waitForStart = new Thread(){
             @Override
             public void run() {
-                waitForStartRun(waitForPlayers);
+                waitForStartRun();
             }
         };
 
-        waitForPlayers.setDaemon(true);
         waitForStart.setDaemon(true);
-        waitForPlayers.start();
         waitForStart.start();
         try {
             waitForStart.join();
         } catch(InterruptedException e) {}
+        */
 
+        try {
+            users.get(0).in.readUTF();
+            for (User user: users){
+                user.out.writeUTF("start");
+            }
+            status = "game";
+        } catch(IOException x) { x.printStackTrace(); }
+
+        players = new User[playersNum = playersAmount()];
+        int i = 0;
+        for (User user: users) {
+            if (user.type.equals("player")) {
+                players[i] = user;
+                i++;
+            }
+        }
+        try {
+            for (User user: users) user.out.writeInt(playersNum);
+            for (i=0; i<playersNum; i++) {
+                for (User user : users) user.out.writeUTF(players[i].name);
+            }
+        } catch (IOException e) { e.printStackTrace(); }
+
+        //началась сама игра
+        listeners = new PlayerListener[playersNum];
+        for (i=0; i<playersNum; i++) {
+            listeners[i] = new PlayerListener(players[i],i,users);
+            listeners[i].setDaemon(true);
+            listeners[i].start();
+        }
 
     }
 
 
-    private void waitForPlayersRun() {
+    /*private void waitForPlayersRun() {
         try {
             try {
                 Socket socket = Server.ss.accept();
@@ -59,34 +89,32 @@ public class SessionThread extends Thread{
                 DataOutputStream out = new DataOutputStream(sout);
                 String input = in.readUTF();
                 if (input.equals("player")) {
-                    if (players.size() == 4) status = "ready";
-                    else players.add(socket);
+                    if (playersAmount() != 4) {
+                        users.add(new User(socket,in.readUTF(),input));
+                    }
                 }
-                if (input.equals("spectator")) {
-                    spectators.add(socket);
-                }
+                else users.add(new User(socket,in.readUTF(),input));
             } catch (ClosedByInterruptException e){ System.out.print("interrupted"); }
         } catch(IOException x) { x.printStackTrace(); }
-    }
+    }*/
 
-    private void waitForStartRun(Thread waitForPlayers) {
+    private void waitForStartRun(/*Thread waitForPlayers*/) {
         try {
-            InputStream sin = players.get(0).getInputStream();
-            OutputStream sout = players.get(0).getOutputStream();
-            DataInputStream in = new DataInputStream(sin);
-            DataOutputStream out = new DataOutputStream(sout);
-            in.readUTF();
-            waitForPlayers.interrupt();
-            for (Socket player: players){
-                DataOutputStream plOut = new DataOutputStream(player.getOutputStream());
-                plOut.writeUTF("start");
-            }
-            for (Socket spectator: spectators){
-                DataOutputStream spOut = new DataOutputStream(spectator.getOutputStream());
-                spOut.writeUTF("start");
+            users.get(0).in.readUTF();
+            //waitForPlayers.interrupt();
+            for (User user: users){
+                user.out.writeUTF("start");
             }
             status = "game";
         } catch(IOException x) { x.printStackTrace(); }
+    }
+
+    public int playersAmount() {
+        int result = 0;
+        for (User user: users) {
+            if (user.type.equals("player")) result++;
+        }
+        return result;
     }
 
 

@@ -3,19 +3,11 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 
-import javax.xml.soap.Text;
-import java.awt.font.TextLayout;
 import java.io.IOException;
 
 
@@ -25,8 +17,9 @@ public class MenuController {
     private AnchorPane pane;
     @FXML public void startgame(MouseEvent mouseEvent) throws IOException {
         Client.out.writeUTF("start");
+        Client.in.readUTF();
         Stage stage = (Stage) pane.getScene().getWindow();
-        Parent root =  FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root =  FXMLLoader.load(getClass().getResource("game.fxml"));
         stage.setScene(new Scene( root, Game.CELL_SIZE*Game.WIDTH, Game.CELL_SIZE*Game.HEIGHT));
         stage.show();
     }
@@ -46,6 +39,7 @@ public class MenuController {
     public void creategame(MouseEvent mouseEvent) throws IOException {
         Client.connectToServer();
         Client.out.writeUTF("create");
+        Client.out.writeUTF(GameController.myName);
         Stage stage = (Stage) pane.getScene().getWindow();
         Parent root =  FXMLLoader.load(getClass().getResource("creategame.fxml"));
         stage.setScene(new Scene(root, /*Game.CELL_SIZE*Game.WIDTH*/600, /*Game.CELL_SIZE*Game.HEIGHT*/400));
@@ -53,9 +47,18 @@ public class MenuController {
     }
 
     public void findgame(MouseEvent mouseEvent) throws IOException {
+        Client.connectToServer();
+        Client.out.writeUTF("find");
+        Client.out.writeUTF(GameController.myName);
         Stage stage = (Stage) pane.getScene().getWindow();
         Parent root =  FXMLLoader.load(getClass().getResource("findgame.fxml"));
         stage.setScene(new Scene(root, /*Game.CELL_SIZE*Game.WIDTH*/600, /*Game.CELL_SIZE*Game.HEIGHT*/400));
         stage.show();
+
+        Client.in.readUTF();
+        Stage gameStage = (Stage) pane.getScene().getWindow();
+        Parent gameRoot =  FXMLLoader.load(getClass().getResource("game.fxml"));
+        gameStage.setScene(new Scene( gameRoot, Game.CELL_SIZE*Game.WIDTH, Game.CELL_SIZE*Game.HEIGHT));
+        gameStage.show();
     }
 }

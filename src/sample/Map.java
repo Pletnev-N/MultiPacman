@@ -48,4 +48,33 @@ public class Map {
             }
     }
 
+    public int startPosI(int num) {
+        int result = 0;
+        if ((num==0)||(num==1)) result = 1;
+        if ((num==2)||(num==3)) result = 9;
+        return result;
+    }
+
+    public int startPosJ(int num) {
+        int result = 0;
+        if ((num==0)||(num==3)) result = 1;
+        if ((num==1)||(num==2)) result = 13;
+        return result;
+    }
+
+    public int startDirX(int num) {
+        int result = 0;
+        if (num==0) result = 1;
+        if ((num==1)||(num==3)) result = 0;
+        if (num==2) result = -1;
+        return result;
+    }
+
+    public int startDirY(int num) {
+        int result = 0;
+        if (num==1) result = 1;
+        if ((num==0)||(num==2)) result = 0;
+        if (num==3) result = -1;
+        return result;
+    }
 }

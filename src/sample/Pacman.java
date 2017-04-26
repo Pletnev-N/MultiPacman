@@ -10,18 +10,19 @@ public class Pacman {
     public int directionX,directionY;
     public int newDirectionX,newDirectionY;
     public double speed;
-    public int playerName;
+    public String playerName;
     public int score;
     public Image pic;
 
 
-    public Pacman(int i,int j, int dirX, int dirY, double sp){
+    public Pacman(int i,int j, int dirX, int dirY, String name){
         X=j*Game.CELL_SIZE+Game.CELL_SIZE/2;
         Y=i*Game.CELL_SIZE+Game.CELL_SIZE/2;
         newDirectionX=directionX=dirX;
         newDirectionY=directionY=dirY;
-        speed=sp;
+        speed=1.0;
         score=0;
+        playerName = name;
         pic=new Image("pacman1.png");
     }
 

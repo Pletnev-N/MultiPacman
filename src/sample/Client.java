@@ -1,11 +1,13 @@
 package sample;
 import java.net.*;
 import java.io.*;
+import java.util.ArrayList;
 
 public class Client {
 
     public static DataInputStream in;
     public static DataOutputStream out;
+
 
     public static void connectToServer() {
         try {
