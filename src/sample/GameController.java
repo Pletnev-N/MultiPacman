@@ -36,7 +36,7 @@ public class GameController {
         try {
             pacmans = new Pacman[pacmansNum = Client.in.readInt()];
             for (int i=0; i<pacmansNum; i++) {
-                pacmans[i] = new Pacman(map.startPosI(i),map.startPosJ(i),map.startDirX(i),map.startDirY(i),Client.in.readUTF());
+                pacmans[i] = new Pacman(map.startPosI(i),map.startPosJ(i),map.startDirX(i),map.startDirY(i),Client.in.readUTF(),"pacman"+Integer.toString(i)+".png");
                 if (pacmans[i].playerName.equals(myName)) myPacman = pacmans[i];
             }
         } catch (IOException e) { e.printStackTrace(); }

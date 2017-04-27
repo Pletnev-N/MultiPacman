@@ -34,6 +34,7 @@ public class Server extends Application {
                 DataInputStream in = new DataInputStream(sin);
                 DataOutputStream out = new DataOutputStream(sout);
                 String input = in.readUTF();
+
                 if (input.equals("create")){
                     SessionThread session = new SessionThread(num, socket, in.readUTF());
                     session.setDaemon(true);
@@ -42,11 +43,22 @@ public class Server extends Application {
                     num++;
                     System.out.print("создание игры");
                 }
+
                 if (input.equals("find")){
-                    for (SessionThread session: sessionList) {
+                    String type = in.readUTF();
+                    if (type.equals("player")) {
+                        for (SessionThread session : sessionList)
+                            if (session.playersAmount()<4) {
+                                session.users.add(new User(socket,in.readUTF(),type));
+                                break;
+                            }
+                    }
+                    if (type.equals("spectator")) {
+                        sessionList.get(0).users.add(new User(socket,in.readUTF(),type));
                     }
                     System.out.print("поиск игры");
                 }
+
             }
         } catch(Exception x) { x.printStackTrace(); }
     }

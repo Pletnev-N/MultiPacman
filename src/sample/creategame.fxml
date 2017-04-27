@@ -15,19 +15,19 @@
 
 <AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MenuController">
    <children>
-      <Text focusTraversable="true" layoutX="82.0" layoutY="124.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="????" textAlignment="CENTER" wrappingWidth="448.13671875">
+      <ImageView fitHeight="406.0" fitWidth="653.0" layoutX="-4.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../background.jpg" />
+         </image>
+      </ImageView>
+      <Text fill="#3fe1d6" fx:id="startgame" layoutX="318.0" layoutY="373.0" onMouseClicked="#startgame" strokeWidth="0.0" text="Start Game" textAlignment="CENTER" wrappingWidth="258.13671875">
          <font>
-            <Font size="64.0" />
+            <Font name="Rage Italic" size="50.0" />
          </font>
       </Text>
-      <Text fx:id="startgame" layoutX="82.0" layoutY="209.0" onMouseClicked="#startgame" strokeWidth="0.0" text="Start Game" textAlignment="CENTER" wrappingWidth="448.13671875">
+      <Text fill="#3fe1d6" layoutX="14.0" layoutY="373.0" onMouseClicked="#back" strokeType="OUTSIDE" strokeWidth="0.0" text="Back" textAlignment="CENTER" wrappingWidth="138.13671875">
          <font>
-            <Font size="64.0" />
-         </font>
-      </Text>
-      <Text layoutX="237.0" layoutY="294.0" onMouseClicked="#back" strokeType="OUTSIDE" strokeWidth="0.0" text="Back" textAlignment="CENTER" wrappingWidth="138.13671875">
-         <font>
-            <Font size="64.0" />
+            <Font name="Rage Italic" size="50.0" />
          </font>
       </Text>
    </children>

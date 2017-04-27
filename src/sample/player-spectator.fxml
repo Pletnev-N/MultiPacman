@@ -20,9 +20,14 @@
             <Image url="@../background.jpg" />
          </image>
       </ImageView>
-      <Text fill="#3fe1d6" focusTraversable="true" layoutX="76.0" layoutY="350.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Waiting for start" textAlignment="CENTER" wrappingWidth="448.13671875">
+      <Text fill="#3fe1d6" focusTraversable="true" layoutX="71.0" layoutY="344.0" onMouseClicked="#setPlayerType" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Player" textAlignment="CENTER" wrappingWidth="163.13671875">
          <font>
-            <Font name="Rage Italic" size="64.0" />
+            <Font name="Rage Italic" size="65.0" />
+         </font>
+      </Text>
+      <Text fx:id="startgame" fill="#3fe1d6" layoutX="300.0" layoutY="343.0" onMouseClicked="#setSpectatorType" strokeWidth="0.0" text="Spectator" textAlignment="CENTER" wrappingWidth="250.13671875">
+         <font>
+            <Font name="Rage Italic" size="65.0" />
          </font>
       </Text>
    </children>

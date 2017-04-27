@@ -14,8 +14,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
-        primaryStage.setTitle("Pacman");
+        Parent root = FXMLLoader.load(getClass().getResource("nameEnter.fxml"));
+        primaryStage.setTitle("MultiPacman");
         primaryStage.setScene(new Scene(root, /*Game.CELL_SIZE*Game.WIDTH*/600, /*Game.CELL_SIZE*Game.HEIGHT*/400));
         primaryStage.show();
     }

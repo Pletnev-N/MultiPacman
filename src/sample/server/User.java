@@ -9,6 +9,7 @@ public class User {
     public Socket socket;
     public String name;
     public String type;
+    public int score;
     public DataInputStream in;
     public DataOutputStream out;
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
@@ -20,9 +21,19 @@
             <Image url="@../background.jpg" />
          </image>
       </ImageView>
-      <Text fill="#3fe1d6" focusTraversable="true" layoutX="76.0" layoutY="350.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Waiting for start" textAlignment="CENTER" wrappingWidth="448.13671875">
+      <TextField fx:id="nameField" alignment="CENTER" blendMode="OVERLAY" layoutX="208.0" layoutY="292.0" text="HERE">
          <font>
-            <Font name="Rage Italic" size="64.0" />
+            <Font name="Buxton Sketch" size="20.0" />
+         </font>
+      </TextField>
+      <Text fill="#3fe1d6" layoutX="162.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="type your name:" textAlignment="CENTER">
+         <font>
+            <Font name="Buxton Sketch" size="49.0" />
+         </font>
+      </Text>
+      <Text fill="#3fe1d6" layoutX="273.0" layoutY="372.0" onMouseClicked="#menu" strokeType="OUTSIDE" strokeWidth="0.0" text="Next">
+         <font>
+            <Font name="Buxton Sketch" size="35.0" />
          </font>
       </Text>
    </children>

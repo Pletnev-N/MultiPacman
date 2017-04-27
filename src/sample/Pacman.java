@@ -15,7 +15,7 @@ public class Pacman {
     public Image pic;
 
 
-    public Pacman(int i,int j, int dirX, int dirY, String name){
+    public Pacman(int i,int j, int dirX, int dirY, String name, String imageName){
         X=j*Game.CELL_SIZE+Game.CELL_SIZE/2;
         Y=i*Game.CELL_SIZE+Game.CELL_SIZE/2;
         newDirectionX=directionX=dirX;
@@ -23,7 +23,7 @@ public class Pacman {
         speed=1.0;
         score=0;
         playerName = name;
-        pic=new Image("pacman1.png");
+        pic=new Image(imageName);
     }
 
     public void move(Map map){

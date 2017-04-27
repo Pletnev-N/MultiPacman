@@ -14,6 +14,7 @@ public class SessionThread extends Thread{
     public PlayerListener[] listeners;
     public int playersNum;
     public String status;
+    public int points = 69;
 
     public SessionThread(int num, Socket soc, String creatorName){
         sessionNum=num;
@@ -23,28 +24,6 @@ public class SessionThread extends Thread{
     }
 
     public void run() {
-
-        /*Thread waitForPlayers = new Thread(){
-            @Override
-            public void run() {
-                waitForPlayersRun();
-            }
-        };*/
-
-        /*Thread waitForStart = new Thread(){
-            @Override
-            public void run() {
-                waitForStartRun();
-            }
-        };
-
-        waitForStart.setDaemon(true);
-        waitForStart.start();
-        try {
-            waitForStart.join();
-        } catch(InterruptedException e) {}
-        */
-
         try {
             users.get(0).in.readUTF();
             for (User user: users){
@@ -79,24 +58,6 @@ public class SessionThread extends Thread{
     }
 
 
-    /*private void waitForPlayersRun() {
-        try {
-            try {
-                Socket socket = Server.ss.accept();
-                InputStream sin = socket.getInputStream();
-                OutputStream sout = socket.getOutputStream();
-                DataInputStream in = new DataInputStream(sin);
-                DataOutputStream out = new DataOutputStream(sout);
-                String input = in.readUTF();
-                if (input.equals("player")) {
-                    if (playersAmount() != 4) {
-                        users.add(new User(socket,in.readUTF(),input));
-                    }
-                }
-                else users.add(new User(socket,in.readUTF(),input));
-            } catch (ClosedByInterruptException e){ System.out.print("interrupted"); }
-        } catch(IOException x) { x.printStackTrace(); }
-    }*/
 
     private void waitForStartRun(/*Thread waitForPlayers*/) {
         try {
