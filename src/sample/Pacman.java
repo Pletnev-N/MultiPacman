@@ -30,6 +30,7 @@ public class Pacman {
         if ( (X%Game.CELL_SIZE==Game.CELL_SIZE/2)&&(Y%Game.CELL_SIZE==Game.CELL_SIZE/2) ){
             if (map.massive[Y/Game.CELL_SIZE][X/Game.CELL_SIZE]==map.POINT){
                 score++;
+                map.pointsNum--;
                 map.massive[Y/Game.CELL_SIZE][X/Game.CELL_SIZE]=map.EMPTY;
             }
             if (map.massive[(Y+newDirectionY*Game.CELL_SIZE)/Game.CELL_SIZE][(X+newDirectionX*Game.CELL_SIZE)/Game.CELL_SIZE]!=map.WALL){

@@ -1,8 +1,15 @@
 package sample;
 
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Game extends Thread {
 
@@ -23,8 +30,10 @@ public class Game extends Thread {
             GameController.graphics.clearRect(0,0,canvas.getWidth(),canvas.getHeight());
             calculateScene();
             drawFrame(GameController.graphics);
-            try { Thread.sleep(18); }
+            try { Thread.sleep(28); }
             catch (InterruptedException e) { e.printStackTrace(); }
+            if (map.pointsNum==0)
+                break;
         }
     }
 

@@ -1,11 +1,16 @@
 package sample;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.canvas.Canvas;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -53,6 +58,19 @@ public class GameController {
         Game game = new Game(canvas,map);
         game.setDaemon(true);
         game.start();
+
+        /*while (true) {
+            if (map.pointsNum==0) {
+                Stage stage = (Stage) pane.getScene().getWindow();
+                Parent root = null;
+                try {
+                    root = FXMLLoader.load(getClass().getResource("gameEnd.fxml"));
+                    stage.setScene(new Scene(root,600,400));
+                } catch (IOException e) { e.printStackTrace(); }
+                stage.show();
+                break;
+            }
+        }*/
     }
 
 
@@ -112,4 +130,13 @@ public class GameController {
         }
     }
 
+    public void backToMenu(MouseEvent mouseEvent) {
+        Stage stage = (Stage) pane.getScene().getWindow();
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("menu.fxml"));
+            stage.setScene(new Scene(root,600,400));
+        } catch (IOException e) { e.printStackTrace(); }
+        stage.show();
+    }
 }

@@ -21,25 +21,25 @@
             <Image url="@../background.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="nameField" alignment="CENTER" blendMode="OVERLAY" layoutX="114.0" layoutY="292.0" text="NAME">
-         <font>
-            <Font name="Buxton Sketch" size="20.0" />
-         </font>
-      </TextField>
-      <Text fx:id="textLabel" fill="#3fe1d6" layoutX="209.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="type your:" textAlignment="CENTER">
+      <Text fill="#3fe1d6" layoutX="96.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="no user with such name" textAlignment="CENTER">
          <font>
             <Font name="Buxton Sketch" size="49.0" />
          </font>
       </Text>
-      <Text fill="#3fe1d6" layoutX="273.0" layoutY="372.0" onMouseClicked="#menu" strokeType="OUTSIDE" strokeWidth="0.0" text="Next">
+      <Text fill="#3fe1d6" layoutX="208.0" layoutY="372.0" onMouseClicked="#createNewUser" strokeType="OUTSIDE" strokeWidth="0.0" text="Yes">
          <font>
             <Font name="Buxton Sketch" size="35.0" />
          </font>
       </Text>
-      <TextField fx:id="passwordField" alignment="CENTER" blendMode="OVERLAY" layoutX="309.0" layoutY="292.0" text="PASSWORD">
+      <Text fill="#3fe1d6" layoutX="348.0" layoutY="372.0" onMouseClicked="#backToEnterName" strokeType="OUTSIDE" strokeWidth="0.0" text="No">
          <font>
-            <Font name="Buxton Sketch" size="20.0" />
+            <Font name="Buxton Sketch" size="35.0" />
          </font>
-      </TextField>
+      </Text>
+      <Text fill="#3fe1d6" layoutX="231.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="create?" textAlignment="CENTER">
+         <font>
+            <Font name="Buxton Sketch" size="49.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

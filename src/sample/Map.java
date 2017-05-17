@@ -12,6 +12,7 @@ public class Map {
     public final int POINT=1;
     public final int WALL=2;
 
+    public volatile int pointsNum = 69;
     public int massive[][];
     private Image emptyPic;
     private Image pointPic;

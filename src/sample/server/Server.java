@@ -14,6 +14,7 @@ public class Server extends Application {
 
     public static ArrayList<SessionThread> sessionList;
     public static ServerSocket ss;
+    public static Database database;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -22,6 +23,8 @@ public class Server extends Application {
         primaryStage.setScene(new Scene(root,200,150));
         primaryStage.show();
 
+        database = new Database();
+        database.Connect();
         sessionList = new ArrayList<SessionThread>();
         int num=0;
         int port = 6666;
@@ -57,6 +60,12 @@ public class Server extends Application {
                         sessionList.get(0).users.add(new User(socket,in.readUTF(),type));
                     }
                     System.out.print("поиск игры");
+                }
+
+                if (input.equals("check")){
+                    LoginCheck checkThread = new LoginCheck(database, socket, in, out);
+                    checkThread.setDaemon(true);
+                    checkThread.start();
                 }
 
             }
