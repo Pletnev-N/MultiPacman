@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
@@ -20,19 +21,24 @@
             <Image url="@../background.jpg" />
          </image>
       </ImageView>
-      <Text fill="#3fe1d6" focusTraversable="true" layoutX="82.0" layoutY="316.0" onMouseClicked="#findgame" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Find Game" textAlignment="CENTER" wrappingWidth="448.13671875">
+      <Text fill="#3fe1d6" layoutX="96.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="no user with such name" textAlignment="CENTER">
          <font>
-            <Font name="Rage Italic" size="60.0" />
+            <Font name="Buxton Sketch" size="49.0" />
          </font>
       </Text>
-      <Text fx:id="startgame" fill="#3fe1d6" layoutX="82.0" layoutY="258.0" onMouseClicked="#creategame" strokeWidth="0.0" text="Create Game" textAlignment="CENTER" wrappingWidth="448.13671875">
+      <Text fill="#3fe1d6" layoutX="208.0" layoutY="372.0" onMouseClicked="#createNewUser" strokeType="OUTSIDE" strokeWidth="0.0" text="Yes">
          <font>
-            <Font name="Rage Italic" size="60.0" />
+            <Font name="Buxton Sketch" size="35.0" />
          </font>
       </Text>
-      <Text fill="#3fe1d6" layoutX="248.0" layoutY="378.0" onMouseClicked="#exitgame" strokeType="OUTSIDE" strokeWidth="0.0" text="Exit" textAlignment="CENTER" wrappingWidth="103.13671875">
+      <Text fill="#3fe1d6" layoutX="348.0" layoutY="372.0" onMouseClicked="#backToEnterName" strokeType="OUTSIDE" strokeWidth="0.0" text="No">
          <font>
-            <Font name="Rage Italic" size="60.0" />
+            <Font name="Buxton Sketch" size="35.0" />
+         </font>
+      </Text>
+      <Text fill="#3fe1d6" layoutX="231.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="create?" textAlignment="CENTER">
+         <font>
+            <Font name="Buxton Sketch" size="49.0" />
          </font>
       </Text>
    </children>

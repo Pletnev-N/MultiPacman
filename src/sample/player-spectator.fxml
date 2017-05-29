@@ -20,19 +20,14 @@
             <Image url="@../background.jpg" />
          </image>
       </ImageView>
-      <Text fill="#3fe1d6" focusTraversable="true" layoutX="82.0" layoutY="316.0" onMouseClicked="#findgame" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Find Game" textAlignment="CENTER" wrappingWidth="448.13671875">
+      <Text fill="#3fe1d6" focusTraversable="true" layoutX="71.0" layoutY="344.0" onMouseClicked="#setPlayerType" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Player" textAlignment="CENTER" wrappingWidth="163.13671875">
          <font>
-            <Font name="Rage Italic" size="60.0" />
+            <Font name="Rage Italic" size="65.0" />
          </font>
       </Text>
-      <Text fx:id="startgame" fill="#3fe1d6" layoutX="82.0" layoutY="258.0" onMouseClicked="#creategame" strokeWidth="0.0" text="Create Game" textAlignment="CENTER" wrappingWidth="448.13671875">
+      <Text fx:id="startgame" fill="#3fe1d6" layoutX="300.0" layoutY="343.0" onMouseClicked="#setSpectatorType" strokeWidth="0.0" text="Spectator" textAlignment="CENTER" wrappingWidth="250.13671875">
          <font>
-            <Font name="Rage Italic" size="60.0" />
-         </font>
-      </Text>
-      <Text fill="#3fe1d6" layoutX="248.0" layoutY="378.0" onMouseClicked="#exitgame" strokeType="OUTSIDE" strokeWidth="0.0" text="Exit" textAlignment="CENTER" wrappingWidth="103.13671875">
-         <font>
-            <Font name="Rage Italic" size="60.0" />
+            <Font name="Rage Italic" size="65.0" />
          </font>
       </Text>
    </children>

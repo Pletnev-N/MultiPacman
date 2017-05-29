@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GameController">
+   <children>
+      <ImageView fitHeight="406.0" fitWidth="653.0" layoutX="-4.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../end.jpg" />
+         </image>
+      </ImageView>
+      <Text fx:id="score4" fill="#3fe1d6" layoutX="205.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
+         <font>
+            <Font name="Buxton Sketch" size="49.0" />
+         </font>
+      </Text>
+      <Text fill="#3fe1d6" layoutX="273.0" layoutY="372.0" onMouseClicked="#backToMenu" strokeType="OUTSIDE" strokeWidth="0.0" text="Exit">
+         <font>
+            <Font name="Buxton Sketch" size="35.0" />
+         </font>
+      </Text>
+      <Text fx:id="score3" fill="#3fe1d6" layoutX="205.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
+         <font>
+            <Font name="Buxton Sketch" size="49.0" />
+         </font>
+      </Text>
+      <Text fx:id="score1" fill="#3fe1d6" layoutX="205.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
+         <font>
+            <Font name="Buxton Sketch" size="49.0" />
+         </font>
+      </Text>
+      <Text fx:id="score2" fill="#3fe1d6" layoutX="205.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
+         <font>
+            <Font name="Buxton Sketch" size="49.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
